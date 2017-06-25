@@ -1,0 +1,777 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Modelo.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AULA">
+          <Key>
+            <PropertyRef Name="Aula_codigo" />
+          </Key>
+          <Property Name="Aula_codigo" Type="int" Nullable="false" />
+          <Property Name="Aula_numerocurso" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Estadodeaula_codigo" Type="smallint" Nullable="false" />
+          <Property Name="Aula_capacidad" Type="tinyint" Nullable="false" />
+          <Property Name="Aula_FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="Aula_FechaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="Usuario_codigo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CAPACITACION">
+          <Key>
+            <PropertyRef Name="Capacitacion_codigo" />
+          </Key>
+          <Property Name="Capacitacion_codigo" Type="int" Nullable="false" />
+          <Property Name="Capacitacion_nombre" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ESTADO DE AULA">
+          <Key>
+            <PropertyRef Name="Estadodeaula_codigo" />
+          </Key>
+          <Property Name="Estadodeaula_codigo" Type="smallint" Nullable="false" />
+          <Property Name="Estadodeaula_nombre" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ESTUDIANTE">
+          <Key>
+            <PropertyRef Name="Estudiante_codigo" />
+          </Key>
+          <Property Name="Estudiante_codigo" Type="int" Nullable="false" />
+          <Property Name="Estudiante_nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Estudiante_apellido" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Estudiante_fechanac" Type="datetime" Nullable="false" />
+          <Property Name="Estudiante_direccion" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Estudiante_email" Type="varchar" MaxLength="40" />
+          <Property Name="Estudiante_telefono" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Estudiante_celular" Type="varchar" MaxLength="10" />
+          <Property Name="Estudiante_estadocivil" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Estudiante_sexo" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Estudiante_foto" Type="image" Nullable="false" />
+          <Property Name="Seccion_codigo" Type="int" Nullable="false" />
+          <Property Name="Estudiante_FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="Estudiante_FechaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="Usuario_codigo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ESTUDIANTE-SECCION">
+          <Key>
+            <PropertyRef Name="EstudianteSeccion_codigo" />
+          </Key>
+          <Property Name="EstudianteSeccion_codigo" Type="int" Nullable="false" />
+          <Property Name="Estudiante_codigo" Type="int" Nullable="false" />
+          <Property Name="Seccion_codigo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PROFESOR">
+          <Key>
+            <PropertyRef Name="Profesor_codigo" />
+          </Key>
+          <Property Name="Profesor_codigo" Type="int" Nullable="false" />
+          <Property Name="Profesor_nombre" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Profesor_apellido" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Profesor_fechanac" Type="datetime" Nullable="false" />
+          <Property Name="Profesor_estadocivil" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Profesor_nacionalidad" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Profesor_cedula" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Profesor_email" Type="varchar" MaxLength="40" />
+          <Property Name="Profesor_sexo" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Profesor_direccion" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Profesor_telefono1" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Profesor_telefono2" Type="varchar" MaxLength="10" />
+          <Property Name="Seccion_codigo" Type="int" Nullable="false" />
+          <Property Name="Profesor_foto" Type="image" Nullable="false" />
+          <Property Name="Profesor_FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="Profesor_FechaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="Usuario_codigo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SECCION">
+          <Key>
+            <PropertyRef Name="Seccion_codigo" />
+          </Key>
+          <Property Name="Seccion_codigo" Type="int" Nullable="false" />
+          <Property Name="Seccion_horario" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="Capacitacion_codigo" Type="int" Nullable="false" />
+          <Property Name="Profesor_codigo" Type="int" Nullable="false" />
+          <Property Name="Seccion_cupo" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Aula_codigo" Type="int" Nullable="false" />
+          <Property Name="Seccion_fechai" Type="datetime" Nullable="false" />
+          <Property Name="Seccion_fechaf" Type="datetime" Nullable="false" />
+          <Property Name="Seccion_FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="Seccion_FechaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="Usuario_codigo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="Usuario_codigo" />
+          </Key>
+          <Property Name="Usuario_codigo" Type="int" Nullable="false" />
+          <Property Name="Usuario_nombre" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Usuario_cargo" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Usuario_foto" Type="image" Nullable="false" />
+          <Property Name="Usuario_contraseña" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AULA_ESTADO DE AULA">
+          <End Role="ESTADO DE AULA" Type="Self.ESTADO DE AULA" Multiplicity="1" />
+          <End Role="AULA" Type="Self.AULA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO DE AULA">
+              <PropertyRef Name="Estadodeaula_codigo" />
+            </Principal>
+            <Dependent Role="AULA">
+              <PropertyRef Name="Estadodeaula_codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AULA_USUARIO1">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="AULA" Type="Self.AULA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="Usuario_codigo" />
+            </Principal>
+            <Dependent Role="AULA">
+              <PropertyRef Name="Usuario_codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ESTUDIANTE_SECCION1">
+          <End Role="SECCION" Type="Self.SECCION" Multiplicity="1" />
+          <End Role="ESTUDIANTE" Type="Self.ESTUDIANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SECCION">
+              <PropertyRef Name="Seccion_codigo" />
+            </Principal>
+            <Dependent Role="ESTUDIANTE">
+              <PropertyRef Name="Seccion_codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ESTUDIANTE_USUARIO2">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="ESTUDIANTE" Type="Self.ESTUDIANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="Usuario_codigo" />
+            </Principal>
+            <Dependent Role="ESTUDIANTE">
+              <PropertyRef Name="Usuario_codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ESTUDIANTE-SECCION_ESTUDIANTE">
+          <End Role="ESTUDIANTE" Type="Self.ESTUDIANTE" Multiplicity="1" />
+          <End Role="ESTUDIANTE-SECCION" Type="Self.ESTUDIANTE-SECCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTUDIANTE">
+              <PropertyRef Name="Estudiante_codigo" />
+            </Principal>
+            <Dependent Role="ESTUDIANTE-SECCION">
+              <PropertyRef Name="Estudiante_codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ESTUDIANTE-SECCION_SECCION">
+          <End Role="SECCION" Type="Self.SECCION" Multiplicity="1" />
+          <End Role="ESTUDIANTE-SECCION" Type="Self.ESTUDIANTE-SECCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SECCION">
+              <PropertyRef Name="Seccion_codigo" />
+            </Principal>
+            <Dependent Role="ESTUDIANTE-SECCION">
+              <PropertyRef Name="Seccion_codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ESTUDIANTE-SECCION_SECCION2">
+          <End Role="SECCION" Type="Self.SECCION" Multiplicity="1" />
+          <End Role="ESTUDIANTE-SECCION" Type="Self.ESTUDIANTE-SECCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SECCION">
+              <PropertyRef Name="Seccion_codigo" />
+            </Principal>
+            <Dependent Role="ESTUDIANTE-SECCION">
+              <PropertyRef Name="Seccion_codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PROFESOR_USUARIO1">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="PROFESOR" Type="Self.PROFESOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="Usuario_codigo" />
+            </Principal>
+            <Dependent Role="PROFESOR">
+              <PropertyRef Name="Usuario_codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SECCION_AULA">
+          <End Role="AULA" Type="Self.AULA" Multiplicity="1" />
+          <End Role="SECCION" Type="Self.SECCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AULA">
+              <PropertyRef Name="Aula_codigo" />
+            </Principal>
+            <Dependent Role="SECCION">
+              <PropertyRef Name="Aula_codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SECCION_CAPACITACION">
+          <End Role="CAPACITACION" Type="Self.CAPACITACION" Multiplicity="1" />
+          <End Role="SECCION" Type="Self.SECCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAPACITACION">
+              <PropertyRef Name="Capacitacion_codigo" />
+            </Principal>
+            <Dependent Role="SECCION">
+              <PropertyRef Name="Capacitacion_codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SECCION_PROFESOR">
+          <End Role="PROFESOR" Type="Self.PROFESOR" Multiplicity="1" />
+          <End Role="SECCION" Type="Self.SECCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROFESOR">
+              <PropertyRef Name="Profesor_codigo" />
+            </Principal>
+            <Dependent Role="SECCION">
+              <PropertyRef Name="Profesor_codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SECCION_USUARIO3">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="SECCION" Type="Self.SECCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="Usuario_codigo" />
+            </Principal>
+            <Dependent Role="SECCION">
+              <PropertyRef Name="Usuario_codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModeloStoreContainer">
+          <EntitySet Name="AULA" EntityType="Self.AULA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CAPACITACION" EntityType="Self.CAPACITACION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ESTADO DE AULA" EntityType="Self.ESTADO DE AULA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ESTUDIANTE" EntityType="Self.ESTUDIANTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ESTUDIANTE-SECCION" EntityType="Self.ESTUDIANTE-SECCION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PROFESOR" EntityType="Self.PROFESOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SECCION" EntityType="Self.SECCION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AULA_ESTADO DE AULA" Association="Self.FK_AULA_ESTADO DE AULA">
+            <End Role="ESTADO DE AULA" EntitySet="ESTADO DE AULA" />
+            <End Role="AULA" EntitySet="AULA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AULA_USUARIO1" Association="Self.FK_AULA_USUARIO1">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="AULA" EntitySet="AULA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ESTUDIANTE_SECCION1" Association="Self.FK_ESTUDIANTE_SECCION1">
+            <End Role="SECCION" EntitySet="SECCION" />
+            <End Role="ESTUDIANTE" EntitySet="ESTUDIANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ESTUDIANTE_USUARIO2" Association="Self.FK_ESTUDIANTE_USUARIO2">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="ESTUDIANTE" EntitySet="ESTUDIANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ESTUDIANTE-SECCION_ESTUDIANTE" Association="Self.FK_ESTUDIANTE-SECCION_ESTUDIANTE">
+            <End Role="ESTUDIANTE" EntitySet="ESTUDIANTE" />
+            <End Role="ESTUDIANTE-SECCION" EntitySet="ESTUDIANTE-SECCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ESTUDIANTE-SECCION_SECCION" Association="Self.FK_ESTUDIANTE-SECCION_SECCION">
+            <End Role="SECCION" EntitySet="SECCION" />
+            <End Role="ESTUDIANTE-SECCION" EntitySet="ESTUDIANTE-SECCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ESTUDIANTE-SECCION_SECCION2" Association="Self.FK_ESTUDIANTE-SECCION_SECCION2">
+            <End Role="SECCION" EntitySet="SECCION" />
+            <End Role="ESTUDIANTE-SECCION" EntitySet="ESTUDIANTE-SECCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PROFESOR_USUARIO1" Association="Self.FK_PROFESOR_USUARIO1">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="PROFESOR" EntitySet="PROFESOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SECCION_AULA" Association="Self.FK_SECCION_AULA">
+            <End Role="AULA" EntitySet="AULA" />
+            <End Role="SECCION" EntitySet="SECCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SECCION_CAPACITACION" Association="Self.FK_SECCION_CAPACITACION">
+            <End Role="CAPACITACION" EntitySet="CAPACITACION" />
+            <End Role="SECCION" EntitySet="SECCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SECCION_PROFESOR" Association="Self.FK_SECCION_PROFESOR">
+            <End Role="PROFESOR" EntitySet="PROFESOR" />
+            <End Role="SECCION" EntitySet="SECCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SECCION_USUARIO3" Association="Self.FK_SECCION_USUARIO3">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="SECCION" EntitySet="SECCION" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Modelo" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AULA">
+          <Key>
+            <PropertyRef Name="Aula_codigo" />
+          </Key>
+          <Property Name="Aula_codigo" Type="Int32" Nullable="false" />
+          <Property Name="Aula_numerocurso" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estadodeaula_codigo" Type="Int16" Nullable="false" />
+          <Property Name="Aula_capacidad" Type="Byte" Nullable="false" />
+          <Property Name="Aula_FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Aula_FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Usuario_codigo" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CAPACITACION">
+          <Key>
+            <PropertyRef Name="Capacitacion_codigo" />
+          </Key>
+          <Property Name="Capacitacion_codigo" Type="Int32" Nullable="false" />
+          <Property Name="Capacitacion_nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ESTADO_DE_AULA">
+          <Key>
+            <PropertyRef Name="Estadodeaula_codigo" />
+          </Key>
+          <Property Name="Estadodeaula_codigo" Type="Int16" Nullable="false" />
+          <Property Name="Estadodeaula_nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ESTUDIANTE">
+          <Key>
+            <PropertyRef Name="Estudiante_codigo" />
+          </Key>
+          <Property Name="Estudiante_codigo" Type="Int32" Nullable="false" />
+          <Property Name="Estudiante_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estudiante_apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estudiante_fechanac" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Estudiante_direccion" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estudiante_email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Estudiante_telefono" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estudiante_celular" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Estudiante_estadocivil" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estudiante_sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Estudiante_foto" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="Seccion_codigo" Type="Int32" Nullable="false" />
+          <Property Name="Estudiante_FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Estudiante_FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Usuario_codigo" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ESTUDIANTE_SECCION">
+          <Key>
+            <PropertyRef Name="EstudianteSeccion_codigo" />
+          </Key>
+          <Property Name="EstudianteSeccion_codigo" Type="Int32" Nullable="false" />
+          <Property Name="Estudiante_codigo" Type="Int32" Nullable="false" />
+          <Property Name="Seccion_codigo" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PROFESOR">
+          <Key>
+            <PropertyRef Name="Profesor_codigo" />
+          </Key>
+          <Property Name="Profesor_codigo" Type="Int32" Nullable="false" />
+          <Property Name="Profesor_nombre" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Profesor_apellido" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Profesor_fechanac" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Profesor_estadocivil" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Profesor_nacionalidad" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Profesor_cedula" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Profesor_email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Profesor_sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Profesor_direccion" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Profesor_telefono1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Profesor_telefono2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Seccion_codigo" Type="Int32" Nullable="false" />
+          <Property Name="Profesor_foto" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="Profesor_FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Profesor_FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Usuario_codigo" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SECCION">
+          <Key>
+            <PropertyRef Name="Seccion_codigo" />
+          </Key>
+          <Property Name="Seccion_codigo" Type="Int32" Nullable="false" />
+          <Property Name="Seccion_horario" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Capacitacion_codigo" Type="Int32" Nullable="false" />
+          <Property Name="Profesor_codigo" Type="Int32" Nullable="false" />
+          <Property Name="Seccion_cupo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Aula_codigo" Type="Int32" Nullable="false" />
+          <Property Name="Seccion_fechai" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Seccion_fechaf" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Seccion_FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Seccion_FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Usuario_codigo" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="Usuario_codigo" />
+          </Key>
+          <Property Name="Usuario_codigo" Type="Int32" Nullable="false" />
+          <Property Name="Usuario_nombre" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Usuario_cargo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Usuario_foto" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="Usuario_contraseña" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AULA_ESTADO_DE_AULA">
+          <End Role="ESTADO_DE_AULA" Type="Self.ESTADO_DE_AULA" Multiplicity="1" />
+          <End Role="AULA" Type="Self.AULA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO_DE_AULA">
+              <PropertyRef Name="Estadodeaula_codigo" />
+            </Principal>
+            <Dependent Role="AULA">
+              <PropertyRef Name="Estadodeaula_codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AULA_USUARIO1">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="AULA" Type="Self.AULA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="Usuario_codigo" />
+            </Principal>
+            <Dependent Role="AULA">
+              <PropertyRef Name="Usuario_codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SECCION_AULA">
+          <End Role="AULA" Type="Self.AULA" Multiplicity="1" />
+          <End Role="SECCION" Type="Self.SECCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AULA">
+              <PropertyRef Name="Aula_codigo" />
+            </Principal>
+            <Dependent Role="SECCION">
+              <PropertyRef Name="Aula_codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SECCION_CAPACITACION">
+          <End Role="CAPACITACION" Type="Self.CAPACITACION" Multiplicity="1" />
+          <End Role="SECCION" Type="Self.SECCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAPACITACION">
+              <PropertyRef Name="Capacitacion_codigo" />
+            </Principal>
+            <Dependent Role="SECCION">
+              <PropertyRef Name="Capacitacion_codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ESTUDIANTE_USUARIO2">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="ESTUDIANTE" Type="Self.ESTUDIANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="Usuario_codigo" />
+            </Principal>
+            <Dependent Role="ESTUDIANTE">
+              <PropertyRef Name="Usuario_codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ESTUDIANTE_SECCION_ESTUDIANTE">
+          <End Role="ESTUDIANTE" Type="Self.ESTUDIANTE" Multiplicity="1" />
+          <End Role="ESTUDIANTE_SECCION" Type="Self.ESTUDIANTE_SECCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTUDIANTE">
+              <PropertyRef Name="Estudiante_codigo" />
+            </Principal>
+            <Dependent Role="ESTUDIANTE_SECCION">
+              <PropertyRef Name="Estudiante_codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ESTUDIANTE_SECCION_SECCION">
+          <End Role="SECCION" Type="Self.SECCION" Multiplicity="1" />
+          <End Role="ESTUDIANTE_SECCION" Type="Self.ESTUDIANTE_SECCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SECCION">
+              <PropertyRef Name="Seccion_codigo" />
+            </Principal>
+            <Dependent Role="ESTUDIANTE_SECCION">
+              <PropertyRef Name="Seccion_codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ESTUDIANTE_SECCION_SECCION2">
+          <End Role="SECCION" Type="Self.SECCION" Multiplicity="1" />
+          <End Role="ESTUDIANTE_SECCION" Type="Self.ESTUDIANTE_SECCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SECCION">
+              <PropertyRef Name="Seccion_codigo" />
+            </Principal>
+            <Dependent Role="ESTUDIANTE_SECCION">
+              <PropertyRef Name="Seccion_codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PROFESOR_USUARIO1">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="PROFESOR" Type="Self.PROFESOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="Usuario_codigo" />
+            </Principal>
+            <Dependent Role="PROFESOR">
+              <PropertyRef Name="Usuario_codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SECCION_PROFESOR">
+          <End Role="PROFESOR" Type="Self.PROFESOR" Multiplicity="1" />
+          <End Role="SECCION" Type="Self.SECCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROFESOR">
+              <PropertyRef Name="Profesor_codigo" />
+            </Principal>
+            <Dependent Role="SECCION">
+              <PropertyRef Name="Profesor_codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SECCION_USUARIO3">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="SECCION" Type="Self.SECCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="Usuario_codigo" />
+            </Principal>
+            <Dependent Role="SECCION">
+              <PropertyRef Name="Usuario_codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EntidadesEscuela" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AULA" EntityType="Self.AULA" />
+          <EntitySet Name="CAPACITACION" EntityType="Self.CAPACITACION" />
+          <EntitySet Name="ESTADO_DE_AULA" EntityType="Self.ESTADO_DE_AULA" />
+          <EntitySet Name="ESTUDIANTE" EntityType="Self.ESTUDIANTE" />
+          <EntitySet Name="ESTUDIANTE_SECCION" EntityType="Self.ESTUDIANTE_SECCION" />
+          <EntitySet Name="PROFESOR" EntityType="Self.PROFESOR" />
+          <EntitySet Name="SECCION" EntityType="Self.SECCION" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
+          <AssociationSet Name="FK_AULA_ESTADO_DE_AULA" Association="Self.FK_AULA_ESTADO_DE_AULA">
+            <End Role="ESTADO_DE_AULA" EntitySet="ESTADO_DE_AULA" />
+            <End Role="AULA" EntitySet="AULA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AULA_USUARIO1" Association="Self.FK_AULA_USUARIO1">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="AULA" EntitySet="AULA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SECCION_AULA" Association="Self.FK_SECCION_AULA">
+            <End Role="AULA" EntitySet="AULA" />
+            <End Role="SECCION" EntitySet="SECCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SECCION_CAPACITACION" Association="Self.FK_SECCION_CAPACITACION">
+            <End Role="CAPACITACION" EntitySet="CAPACITACION" />
+            <End Role="SECCION" EntitySet="SECCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ESTUDIANTE_USUARIO2" Association="Self.FK_ESTUDIANTE_USUARIO2">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="ESTUDIANTE" EntitySet="ESTUDIANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ESTUDIANTE_SECCION_ESTUDIANTE" Association="Self.FK_ESTUDIANTE_SECCION_ESTUDIANTE">
+            <End Role="ESTUDIANTE" EntitySet="ESTUDIANTE" />
+            <End Role="ESTUDIANTE_SECCION" EntitySet="ESTUDIANTE_SECCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ESTUDIANTE_SECCION_SECCION" Association="Self.FK_ESTUDIANTE_SECCION_SECCION">
+            <End Role="SECCION" EntitySet="SECCION" />
+            <End Role="ESTUDIANTE_SECCION" EntitySet="ESTUDIANTE_SECCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ESTUDIANTE_SECCION_SECCION2" Association="Self.FK_ESTUDIANTE_SECCION_SECCION2">
+            <End Role="SECCION" EntitySet="SECCION" />
+            <End Role="ESTUDIANTE_SECCION" EntitySet="ESTUDIANTE_SECCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PROFESOR_USUARIO1" Association="Self.FK_PROFESOR_USUARIO1">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="PROFESOR" EntitySet="PROFESOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SECCION_PROFESOR" Association="Self.FK_SECCION_PROFESOR">
+            <End Role="PROFESOR" EntitySet="PROFESOR" />
+            <End Role="SECCION" EntitySet="SECCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SECCION_USUARIO3" Association="Self.FK_SECCION_USUARIO3">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="SECCION" EntitySet="SECCION" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModeloStoreContainer" CdmEntityContainer="EntidadesEscuela">
+          <EntitySetMapping Name="AULA">
+            <EntityTypeMapping TypeName="Modelo.AULA">
+              <MappingFragment StoreEntitySet="AULA">
+                <ScalarProperty Name="Aula_codigo" ColumnName="Aula_codigo" />
+                <ScalarProperty Name="Aula_numerocurso" ColumnName="Aula_numerocurso" />
+                <ScalarProperty Name="Estadodeaula_codigo" ColumnName="Estadodeaula_codigo" />
+                <ScalarProperty Name="Aula_capacidad" ColumnName="Aula_capacidad" />
+                <ScalarProperty Name="Aula_FechaCreacion" ColumnName="Aula_FechaCreacion" />
+                <ScalarProperty Name="Aula_FechaModificacion" ColumnName="Aula_FechaModificacion" />
+                <ScalarProperty Name="Usuario_codigo" ColumnName="Usuario_codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CAPACITACION">
+            <EntityTypeMapping TypeName="Modelo.CAPACITACION">
+              <MappingFragment StoreEntitySet="CAPACITACION">
+                <ScalarProperty Name="Capacitacion_codigo" ColumnName="Capacitacion_codigo" />
+                <ScalarProperty Name="Capacitacion_nombre" ColumnName="Capacitacion_nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ESTADO_DE_AULA">
+            <EntityTypeMapping TypeName="Modelo.ESTADO_DE_AULA">
+              <MappingFragment StoreEntitySet="ESTADO DE AULA">
+                <ScalarProperty Name="Estadodeaula_codigo" ColumnName="Estadodeaula_codigo" />
+                <ScalarProperty Name="Estadodeaula_nombre" ColumnName="Estadodeaula_nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ESTUDIANTE">
+            <EntityTypeMapping TypeName="Modelo.ESTUDIANTE">
+              <MappingFragment StoreEntitySet="ESTUDIANTE">
+                <ScalarProperty Name="Estudiante_codigo" ColumnName="Estudiante_codigo" />
+                <ScalarProperty Name="Estudiante_nombre" ColumnName="Estudiante_nombre" />
+                <ScalarProperty Name="Estudiante_apellido" ColumnName="Estudiante_apellido" />
+                <ScalarProperty Name="Estudiante_fechanac" ColumnName="Estudiante_fechanac" />
+                <ScalarProperty Name="Estudiante_direccion" ColumnName="Estudiante_direccion" />
+                <ScalarProperty Name="Estudiante_email" ColumnName="Estudiante_email" />
+                <ScalarProperty Name="Estudiante_telefono" ColumnName="Estudiante_telefono" />
+                <ScalarProperty Name="Estudiante_celular" ColumnName="Estudiante_celular" />
+                <ScalarProperty Name="Estudiante_estadocivil" ColumnName="Estudiante_estadocivil" />
+                <ScalarProperty Name="Estudiante_sexo" ColumnName="Estudiante_sexo" />
+                <ScalarProperty Name="Estudiante_foto" ColumnName="Estudiante_foto" />
+                <ScalarProperty Name="Seccion_codigo" ColumnName="Seccion_codigo" />
+                <ScalarProperty Name="Estudiante_FechaCreacion" ColumnName="Estudiante_FechaCreacion" />
+                <ScalarProperty Name="Estudiante_FechaModificacion" ColumnName="Estudiante_FechaModificacion" />
+                <ScalarProperty Name="Usuario_codigo" ColumnName="Usuario_codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ESTUDIANTE_SECCION">
+            <EntityTypeMapping TypeName="Modelo.ESTUDIANTE_SECCION">
+              <MappingFragment StoreEntitySet="ESTUDIANTE-SECCION">
+                <ScalarProperty Name="EstudianteSeccion_codigo" ColumnName="EstudianteSeccion_codigo" />
+                <ScalarProperty Name="Estudiante_codigo" ColumnName="Estudiante_codigo" />
+                <ScalarProperty Name="Seccion_codigo" ColumnName="Seccion_codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROFESOR">
+            <EntityTypeMapping TypeName="Modelo.PROFESOR">
+              <MappingFragment StoreEntitySet="PROFESOR">
+                <ScalarProperty Name="Profesor_codigo" ColumnName="Profesor_codigo" />
+                <ScalarProperty Name="Profesor_nombre" ColumnName="Profesor_nombre" />
+                <ScalarProperty Name="Profesor_apellido" ColumnName="Profesor_apellido" />
+                <ScalarProperty Name="Profesor_fechanac" ColumnName="Profesor_fechanac" />
+                <ScalarProperty Name="Profesor_estadocivil" ColumnName="Profesor_estadocivil" />
+                <ScalarProperty Name="Profesor_nacionalidad" ColumnName="Profesor_nacionalidad" />
+                <ScalarProperty Name="Profesor_cedula" ColumnName="Profesor_cedula" />
+                <ScalarProperty Name="Profesor_email" ColumnName="Profesor_email" />
+                <ScalarProperty Name="Profesor_sexo" ColumnName="Profesor_sexo" />
+                <ScalarProperty Name="Profesor_direccion" ColumnName="Profesor_direccion" />
+                <ScalarProperty Name="Profesor_telefono1" ColumnName="Profesor_telefono1" />
+                <ScalarProperty Name="Profesor_telefono2" ColumnName="Profesor_telefono2" />
+                <ScalarProperty Name="Seccion_codigo" ColumnName="Seccion_codigo" />
+                <ScalarProperty Name="Profesor_foto" ColumnName="Profesor_foto" />
+                <ScalarProperty Name="Profesor_FechaCreacion" ColumnName="Profesor_FechaCreacion" />
+                <ScalarProperty Name="Profesor_FechaModificacion" ColumnName="Profesor_FechaModificacion" />
+                <ScalarProperty Name="Usuario_codigo" ColumnName="Usuario_codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SECCION">
+            <EntityTypeMapping TypeName="Modelo.SECCION">
+              <MappingFragment StoreEntitySet="SECCION">
+                <ScalarProperty Name="Seccion_codigo" ColumnName="Seccion_codigo" />
+                <ScalarProperty Name="Seccion_horario" ColumnName="Seccion_horario" />
+                <ScalarProperty Name="Capacitacion_codigo" ColumnName="Capacitacion_codigo" />
+                <ScalarProperty Name="Profesor_codigo" ColumnName="Profesor_codigo" />
+                <ScalarProperty Name="Seccion_cupo" ColumnName="Seccion_cupo" />
+                <ScalarProperty Name="Aula_codigo" ColumnName="Aula_codigo" />
+                <ScalarProperty Name="Seccion_fechai" ColumnName="Seccion_fechai" />
+                <ScalarProperty Name="Seccion_fechaf" ColumnName="Seccion_fechaf" />
+                <ScalarProperty Name="Seccion_FechaCreacion" ColumnName="Seccion_FechaCreacion" />
+                <ScalarProperty Name="Seccion_FechaModificacion" ColumnName="Seccion_FechaModificacion" />
+                <ScalarProperty Name="Usuario_codigo" ColumnName="Usuario_codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Modelo.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO">
+            <EntityTypeMapping TypeName="Modelo.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="Usuario_codigo" ColumnName="Usuario_codigo" />
+                <ScalarProperty Name="Usuario_nombre" ColumnName="Usuario_nombre" />
+                <ScalarProperty Name="Usuario_cargo" ColumnName="Usuario_cargo" />
+                <ScalarProperty Name="Usuario_foto" ColumnName="Usuario_foto" />
+                <ScalarProperty Name="Usuario_contraseña" ColumnName="Usuario_contraseña" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

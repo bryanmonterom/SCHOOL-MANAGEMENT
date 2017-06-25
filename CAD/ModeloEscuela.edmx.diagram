@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d45dcd0e509a4e6bbeabe250ee496fab" Name="Diagram1" ZoomLevel="73">
+        <EntityTypeShape EntityType="Modelo.AULA" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.CAPACITACION" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.ESTADO_DE_AULA" Width="2.125" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.ESTUDIANTE" Width="1.5" PointX="7.5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.ESTUDIANTE_SECCION" Width="3" PointX="9.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.PROFESOR" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.SECCION" Width="1.5" PointX="5.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.USUARIO" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <AssociationConnector Association="Modelo.FK_AULA_ESTADO_DE_AULA" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_AULA_USUARIO1" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_SECCION_AULA" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_SECCION_CAPACITACION" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_ESTUDIANTE_USUARIO2" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_ESTUDIANTE_SECCION_ESTUDIANTE" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_ESTUDIANTE_SECCION_SECCION" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_ESTUDIANTE_SECCION_SECCION2" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_PROFESOR_USUARIO1" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_SECCION_PROFESOR" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_SECCION_USUARIO3" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
